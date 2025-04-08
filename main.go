@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
 	"project/constants"
 	"project/login"
 	"project/products"
@@ -66,5 +68,14 @@ func main() {
 		c.JSON(http.StatusOK, req)
 	})
 
-	r.Run(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "10000"
+	}
+	// r.Run(":8080")
+
+	err := r.Run(fmt.Sprintf(":%s", port))
+	if err != nil {
+		panic(err)
+	}
 }
