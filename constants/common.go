@@ -1,12 +1,18 @@
 package constants
 
 type Item struct {
-	Title    string `json:"title"`
-	Price    string `json:"price"`
-	Rating   string `json:"rating"`
-	Reviews  string `json:"reviews"`
-	URL      string `json:"url"`
-	ImageURL string `json:"image_url"`
+	Title          string `json:"title"`
+	AmazonPrice    string `json:"amazon_price"`
+	FlipkartPrice  string `json:"flipkart_price"`
+	JiomartPrice   string `json:"jiomart_price"`
+	AmazonRating   string `json:"amazon_rating"`
+	FlipkartRating string `json:"flipkart_rating"`
+	JiomartRating  string `json:"jiomart_rating"`
+	Reviews        string `json:"reviews"`
+	AmazonUrl      string `json:"amazon_url"`
+	FlipkartUrl    string `json:"flipkart_url"`
+	JiomartUrl     string `json:"jiomart_url"`
+	ImageUrl       string `json:"image_url"`
 }
 
 type Resp struct {

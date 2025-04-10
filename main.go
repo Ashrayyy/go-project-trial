@@ -20,6 +20,11 @@ func main() {
 		c.JSON(http.StatusOK, resp)
 	})
 
+	r.GET("/api/staples", func(c *gin.Context) {
+		resp, _ := products.GetStaples()
+		c.JSON(http.StatusOK, resp)
+	})
+
 	r.GET("/api/milk-products", func(c *gin.Context) {
 		resp, _ := products.GetProducts(constants.MILK_PRODUCTS)
 		c.JSON(http.StatusOK, resp)
