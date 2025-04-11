@@ -36,3 +36,73 @@ func GetStaples(filter ...int) (constants.Resp, error) {
 	}
 	return res, nil
 }
+
+func GetSnacks(filter ...int) (constants.Resp, error) {
+	data, err := os.ReadFile("products/snacks_beverages.json")
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	var res constants.Resp
+	err = json.Unmarshal(data, &res)
+	// fmt.Println(err)
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	return res, nil
+}
+
+func GetPersonal(filter ...int) (constants.Resp, error) {
+	data, err := os.ReadFile("products/personal_care.json")
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	var res constants.Resp
+	err = json.Unmarshal(data, &res)
+	// fmt.Println(err)
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	return res, nil
+}
+
+func GetPackaged(filter ...int) (constants.Resp, error) {
+	data, err := os.ReadFile("products/packaged_food.json")
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	var res constants.Resp
+	err = json.Unmarshal(data, &res)
+	// fmt.Println(err)
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	return res, nil
+}
+
+func GetHousehold(filter ...int) (constants.Resp, error) {
+	data, err := os.ReadFile("products/household_care.json")
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	var res constants.Resp
+	err = json.Unmarshal(data, &res)
+	// fmt.Println(err)
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	return res, nil
+}
+
+func GetDairy(filter ...int) (constants.Resp, error) {
+	data, err := os.ReadFile("products/dairy_eggs.json")
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	var res constants.Resp
+	err = json.Unmarshal(data, &res)
+	// fmt.Println(err)
+	if err != nil {
+		return constants.Resp{}, err
+	}
+	return res, nil
+}

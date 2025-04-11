@@ -15,30 +15,55 @@ func main() {
 	login.Instantiate()
 	r := gin.Default()
 
-	r.GET("/api", func(c *gin.Context) {
-		resp, _ := products.GetProducts()
-		c.JSON(http.StatusOK, resp)
-	})
+	// r.GET("/api", func(c *gin.Context) {
+	// 	resp, _ := products.GetProducts()
+	// 	c.JSON(http.StatusOK, resp)
+	// })
 
 	r.GET("/api/staples", func(c *gin.Context) {
 		resp, _ := products.GetStaples()
 		c.JSON(http.StatusOK, resp)
 	})
 
-	r.GET("/api/milk-products", func(c *gin.Context) {
-		resp, _ := products.GetProducts(constants.MILK_PRODUCTS)
+	r.GET("/api/dairy_eggs", func(c *gin.Context) {
+		resp, _ := products.GetDairy()
+		c.JSON(http.StatusOK, resp)
+	})
+
+	r.GET("/api/household", func(c *gin.Context) {
+		resp, _ := products.GetHousehold()
+		c.JSON(http.StatusOK, resp)
+	})
+
+	r.GET("/api/packaged", func(c *gin.Context) {
+		resp, _ := products.GetPackaged()
+		c.JSON(http.StatusOK, resp)
+	})
+
+	r.GET("/api/personal", func(c *gin.Context) {
+		resp, _ := products.GetPersonal()
 		c.JSON(http.StatusOK, resp)
 	})
 
 	r.GET("/api/snacks", func(c *gin.Context) {
-		resp, _ := products.GetProducts(constants.SNACKS)
+		resp, _ := products.GetSnacks()
 		c.JSON(http.StatusOK, resp)
 	})
 
-	r.GET("/api/grocery", func(c *gin.Context) {
-		resp, _ := products.GetProducts(constants.GROCERIES)
-		c.JSON(http.StatusOK, resp)
-	})
+	// r.GET("/api/milk-products", func(c *gin.Context) {
+	// 	resp, _ := products.GetProducts(constants.MILK_PRODUCTS)
+	// 	c.JSON(http.StatusOK, resp)
+	// })
+
+	// r.GET("/api/snacks", func(c *gin.Context) {
+	// 	resp, _ := products.GetProducts(constants.SNACKS)
+	// 	c.JSON(http.StatusOK, resp)
+	// })
+
+	// r.GET("/api/grocery", func(c *gin.Context) {
+	// 	resp, _ := products.GetProducts(constants.GROCERIES)
+	// 	c.JSON(http.StatusOK, resp)
+	// })
 
 	r.POST("/login", func(c *gin.Context) {
 
