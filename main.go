@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"math/rand"
 	"os"
 	"project/constants"
 	"project/login"
@@ -90,10 +92,16 @@ func main() {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
 			return
 		}
-		if req.Email == "" || req.Password == "" || req.FirstName == "" {
+		if req.Email == "" || req.Password == "" {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
 			return
 		}
+
+		firstNames := []string{"Aarav", "Vivaan", "Aditya", "Vihaan", "Sai", "Ishaan", "Kabir", "Aryan"}
+		lastNames := []string{"Sharma", "Verma", "Mehra", "Reddy", "Chopra", "Gupta", "Patel", "Deshmukh"}
+
+		req.FirstName = firstNames[rand.Intn(len(firstNames))]
+		req.LastName = lastNames[rand.Intn(len(lastNames))]
 		login.CreateUser(req)
 		c.JSON(http.StatusOK, req)
 	})
